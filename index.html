@@ -1,180 +1,295 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Mail, DownloadCloud, Github, Linkedin } from "lucide-react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Aiswarya — Cybersecurity Engineer Portfolio</title>
 
-// Single-file React + Tailwind portfolio component
-// How to use:
-// 1. Place this file into your React app (e.g. src/components/Portfolio.jsx).
-// 2. Ensure TailwindCSS is set up in the project (PostCSS + tailwind.config.js).
-// 3. Install dependencies: framer-motion and lucide-react (npm i framer-motion lucide-react).
-// 4. Replace the placeholder data (projects, bio, links) with your own content.
+<!-- Lucide icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
 
-export default function Portfolio() {
-  const projects = [
-    {
-      title: "Open Port Scanner",
-      desc: "A lightweight scanner that detects open TCP ports and reports services.",
-      tags: ["Node.js", "Network", "Pentesting"],
-      link: "#",
-    },
-    {
-      title: "Steganography Tool",
-      desc: "Hide and extract messages inside images using LSB technique.",
-      tags: ["Python", "Image", "Crypto"],
-      link: "#",
-    },
-    {
-      title: "Travel Booking Website",
-      desc: "Full-stack demo project showing booking flows and payments.",
-      tags: ["React", "Express", "MongoDB"],
-      link: "#",
-    },
-  ];
-
-  const skills = [
-    "Ethical Hacking",
-    "Digital Forensics",
-    "VAPT",
-    "Python",
-    "Java",
-    "Web Security",
-  ];
-
-  return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
-      <header className="max-w-5xl mx-auto p-6 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center text-white font-bold">A</div>
-          <div>
-            <h1 className="text-lg font-semibold">Aiswarya N.</h1>
-            <p className="text-sm text-gray-600 dark:text-gray-300">Cybersecurity Engineering • VAPT • Digital Forensics</p>
-          </div>
-        </div>
-
-        <nav className="flex items-center gap-4">
-          <a className="text-sm hover:underline" href="#projects">Projects</a>
-          <a className="text-sm hover:underline" href="#about">About</a>
-          <a className="text-sm hover:underline" href="#contact">Contact</a>
-          <a
-            className="inline-flex items-center gap-2 rounded-md border px-3 py-2 text-sm shadow-sm hover:shadow-md"
-            href="#"
-            download
-          >
-            <DownloadCloud size={16} /> Resume
-          </a>
-        </nav>
-      </header>
-
-      <main className="max-w-5xl mx-auto px-6 pb-24">
-        {/* Hero */}
-        <section className="grid md:grid-cols-2 gap-8 items-center py-12">
-          <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }}>
-            <h2 className="text-3xl md:text-4xl font-extrabold leading-tight">Cybersecurity Engineering Student building secure systems and practical tooling.</h2>
-            <p className="mt-4 text-gray-600 dark:text-gray-300">I focus on vulnerability assessment, ethical hacking, and practical security projects that demonstrate real-world defensive and offensive techniques.</p>
-
-            <div className="mt-6 flex gap-3">
-              <a href="#projects" className="rounded-md bg-indigo-600 px-4 py-2 text-white shadow hover:bg-indigo-700">View projects</a>
-              <a href="#contact" className="rounded-md border px-4 py-2">Get in touch</a>
-            </div>
-
-            <div className="mt-6 flex items-center gap-4 text-sm text-gray-600 dark:text-gray-300">
-              <a href="#" aria-label="github" className="hover:underline inline-flex items-center gap-2"><Github size={16} /> GitHub</a>
-              <a href="#" aria-label="linkedin" className="hover:underline inline-flex items-center gap-2"><Linkedin size={16} /> LinkedIn</a>
-            </div>
-          </motion.div>
-
-          <motion.div initial={{ scale: 0.98, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.45 }} className="rounded-2xl bg-white/60 dark:bg-white/5 p-6 shadow-md">
-            <h3 className="text-lg font-semibold">Quick facts</h3>
-            <ul className="mt-4 space-y-2 text-sm text-gray-700 dark:text-gray-300">
-              <li>• Currently: B.Eng. in Cybersecurity</li>
-              <li>• Interests: Vulnerability research, Linux, CTFs</li>
-              <li>• Tools: Burp Suite, Metasploit, Wireshark</li>
-            </ul>
-          </motion.div>
-        </section>
-
-        {/* Projects */}
-        <section id="projects" className="py-8">
-          <h3 className="text-2xl font-bold">Selected Projects</h3>
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">Short descriptions and links for each project — show code, demo, or writeup.</p>
-
-          <div className="mt-6 grid md:grid-cols-2 gap-6">
-            {projects.map((p, idx) => (
-              <motion.article key={idx} whileHover={{ y: -4 }} className="rounded-2xl bg-white p-6 shadow hover:shadow-lg dark:bg-white/5">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h4 className="text-lg font-semibold">{p.title}</h4>
-                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">{p.desc}</p>
-
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {p.tags.map((t) => (
-                        <span key={t} className="text-xs px-2 py-1 rounded-md border">{t}</span>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="ml-4 self-start">
-                    <a href={p.link} className="inline-flex items-center gap-2 text-sm border rounded-md px-3 py-2">View</a>
-                  </div>
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </section>
-
-        {/* About + Skills */}
-        <section id="about" className="py-8 grid md:grid-cols-3 gap-6">
-          <div className="md:col-span-2 rounded-2xl bg-white p-6 shadow dark:bg-white/5">
-            <h3 className="text-2xl font-bold">About me</h3>
-            <p className="mt-4 text-sm text-gray-700 dark:text-gray-300">I’m a dedicated and passionate Cybersecurity Engineering student with hands-on experience in penetration testing, steganography, and secure web development. I enjoy building tools, writing clear reports, and learning new attack/defense techniques through CTFs and practical labs.</p>
-
-            <h4 className="mt-6 font-semibold">Highlights</h4>
-            <ul className="mt-2 list-disc list-inside text-sm text-gray-700 dark:text-gray-300">
-              <li>Completed VAPT-focused projects and internships</li>
-              <li>Built an open-port scanner and image steganography tool</li>
-              <li>Strong foundations in networking, Linux and scripting</li>
-            </ul>
-          </div>
-
-          <aside className="rounded-2xl bg-white p-6 shadow dark:bg-white/5">
-            <h4 className="font-semibold">Skills</h4>
-            <div className="mt-3 flex flex-col gap-2">
-              {skills.map((s) => (
-                <div key={s} className="text-sm flex items-center justify-between">
-                  <span>{s}</span>
-                  <span className="text-xs text-gray-500">Intermediate</span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4">
-              <h5 className="text-sm font-semibold">Certifications</h5>
-              <p className="text-xs text-gray-600 dark:text-gray-300 mt-1">(Add any relevant certs like CEH, CompTIA Security+, etc.)</p>
-            </div>
-          </aside>
-        </section>
-
-        {/* Contact */}
-        <section id="contact" className="py-8">
-          <div className="rounded-2xl bg-white p-6 shadow dark:bg-white/5">
-            <h3 className="text-2xl font-bold">Contact</h3>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">Interested in collaborating, internship opportunities, or feedback? Send a message below.</p>
-
-            <form className="mt-4 grid md:grid-cols-2 gap-4">
-              <input className="p-3 rounded-md border" placeholder="Name" />
-              <input className="p-3 rounded-md border" placeholder="Email" />
-              <input className="p-3 rounded-md border md:col-span-2" placeholder="Subject" />
-              <textarea className="p-3 rounded-md border md:col-span-2" rows={5} placeholder="Message" />
-
-              <button className="md:col-span-2 inline-flex items-center gap-2 justify-center rounded-md bg-indigo-600 px-4 py-2 text-white">Send message <Mail size={16} /></button>
-            </form>
-
-            <div className="mt-6 text-sm text-gray-600 dark:text-gray-300">Or connect: <a href="#" className="ml-2 inline-flex items-center gap-2"><Github size={14} /> GitHub</a> · <a href="#" className="inline-flex items-center gap-2"><Linkedin size={14} /> LinkedIn</a></div>
-          </div>
-        </section>
-
-        <footer className="mt-16 text-center text-sm text-gray-500">© {new Date().getFullYear()} Aiswarya N. — Built with curiosity and coffee.</footer>
-      </main>
-    </div>
-  );
+<style>
+:root{
+  --bg-1: #E8F8F5;
+  --bg-2: #FFEFF1;
+  --accent-1: #00BFFF;
+  --accent-2: #FF69B4;
+  --accent-3: #7FFF00;
+  --glass: rgba(255,255,255,0.12);
+  --text: #062023;
+  --muted: rgba(6,32,35,0.65);
+  --card-glow: 0 10px 30px rgba(0,187,255,0.08), 0 2px 12px rgba(255,105,180,0.05);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  min-height:100vh;
+  color:var(--text);
+  background: linear-gradient(135deg,var(--bg-1), var(--bg-2));
+  overflow-x:hidden;
+}
+
+canvas.bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: var(--accent-1);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  z-index: 1000;
+}
+.skip-link:focus {
+  top: 10px;
+}
+
+/* Header */
+header{
+  padding: 28px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  margin: 0 auto;
+}
+.brand{
+  display:flex;gap:12px;align-items:center;
+}
+.logo{
+  width:48px;height:48px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;
+  color:white;font-weight:700;font-size:18px;
+}
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:8px 10px;
+  border-radius:8px;
+  font-weight:600;
+}
+nav a:hover, nav a:focus {
+  background:rgba(255,255,255,0.1);
+  color:var(--text);
+  outline:none;
+}
+
+/* Main content */
+main{
+  max-width:1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+.hero{
+  display:grid;
+  grid-template-columns: 1fr 420px;
+  gap:32px;
+  align-items:center;
+  margin-bottom:40px;
+}
+.hero-left h1{
+  font-size:clamp(28px,4vw,44px);
+  line-height:1.02;
+  margin-bottom:12px;
+}
+.hero-left p{
+  color:var(--muted);
+  margin-bottom:18px;
+  font-size:16px;
+}
+.btn{
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(90deg,var(--accent-1),var(--accent-2));
+  color:white;
+  box-shadow:var(--card-glow);
+  transition:transform .18s ease;
+}
+.btn.secondary{
+  background:transparent;
+  border:1px solid rgba(6,32,35,0.1);
+  color:var(--text);
+}
+.btn:active{transform:translateY(1px)}
+
+/* Cards */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+.card{
+  padding:18px;
+  border-radius:14px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition:transform .28s, box-shadow .28s;
+}
+.card:hover, .card:focus-within {
+  transform:translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,187,255,0.1);
+}
+
+/* Skills */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:14px;
+}
+.skill{
+  text-align:center;
+  padding:14px;
+  border-radius:12px;
+  background: rgba(255,255,255,0.04);
+}
+.skill p{font-weight:600;color:var(--muted);font-size:14px}
+
+/* Contact */
+.contact{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.contact-item{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  padding:10px 14px;
+  border-radius:10px;
+  background:rgba(255,255,255,0.04);
+}
+.contact-item a{color:var(--muted);text-decoration:none;font-weight:600}
+
+footer{margin-top:36px;padding:24px 0;color:var(--muted);text-align:center;font-size:13px}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<canvas class="bg-canvas"></canvas>
+
+<header>
+  <div class="brand">
+    <div class="logo">AW</div>
+    <div>
+      <div style="font-weight:800">Aiswarya</div>
+      <div style="font-size:12px;color:var(--muted)">Cybersecurity Engineer</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="about">
+    <div class="hero-left">
+      <h1>Hi, I’m <span style="background:linear-gradient(90deg,var(--accent-1),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent">Aiswarya</span> — Cybersecurity Engineer</h1>
+      <p>I’m Aiswarya, a Cybersecurity student passionate about protecting digital systems and data.
+Skilled in network security, ethical hacking, and threat analysis, I thrive on solving security challenges.
+My goal is to create safer digital environments through continuous learning and innovation.</p>
+      <div class="cta-row">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn secondary" href="mailto:example@email.com">Hire / Contact</a>
+      </div>
+    </div>
+    <aside>
+      <div class="avatar"><img src="https://via.placeholder.com/400x400.png?text=Aiswarya" alt="Aiswarya" style="width:120px;height:120px;border-radius:12px;"></div>
+    </aside>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card" tabindex="0"><h4>Stegnography</h4><p>Sceret message hidden in a image.</p></div>
+      <div class="card" tabindex="0"><h4>Cyber Security vulnerability checker using python</h4><p>Finding vulnerabilities in web applications ans networks.</p></div>
+      <div class="card" tabindex="0"><h4> Movie finder</h4><p>.</p></div>
+<div class="card" tabindex="0"><h4></h4>Ticket booking website for travels<p</section>>.</p></div>
+    </div>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill"><i data-lucide="shield"></i><p>Cybersecurity</p></div>
+      <div class="skill"><i data-lucide="code"></i><p>Python</p></div>
+      <div class="skill"><i data-lucide="database"></i><p>Forensics</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact">
+      <div class="contact-item"><i data-lucide="mail"></i><a href="mailto:example@email.com">example@email.com</a></div>
+      <div class="contact-item"><i data-lucide="phone"></i><a href="tel:+919876543210">+91 98765 43210</a></div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> Aiswarya</footer>
+</main>
+
+<script>
+lucide.createIcons();
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* Smooth flowing wave background */
+const canvas = document.querySelector('.bg-canvas');
+const ctx = canvas.getContext('2d');
+let w,h;
+function resize(){
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+let t = 0;
+function drawWave(color, amp, freq, speed, offset){
+  ctx.beginPath();
+  for(let x=0; x<=w; x++){
+    let y = Math.sin((x * freq) + t * speed) * amp + offset;
+    ctx.lineTo(x, y);
+  }
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 2;
+  ctx.stroke();
+}
+
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = 'rgba(255,255,255,0.04)';
+  ctx.fillRect(0,0,w,h);
+  drawWave('#00BFFF', 40, 0.015, 2, h/2 - 40);
+  drawWave('#FF69B4', 30, 0.02, 1.5, h/2);
+  drawWave('#7FFF00', 20, 0.025, 1, h/2 + 40);
+  t += 0.02;
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+</body>
+</html>
